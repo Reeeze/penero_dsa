@@ -1,0 +1,21 @@
+import java.util.*;
+
+ // Compiler version JDK 11.0.2
+public class Activity {
+
+    public static void main(String[] args) {
+        int n = 3;
+        char Stick1 = '1', Stick2 = '3', Stick3 = '2';
+        Disks(n, Stick1, Stick2, Stick3);
+    }
+
+    static void Disks(int n, char Stick1, char Stick2, char Stick3) {
+        if (n == 1) {
+            System.out.println("Move disk 1 from rod " + Stick1 + " to rod " + Stick2);
+            return;
+        }
+        Disks(n - 1, Stick1, Stick3, Stick2);
+        System.out.println("Move disk " + n + " from rod " + Stick1 + " to rod " + Stick2);
+        Disks(n - 1, Stick3, Stick2, Stick1);
+    }
+}
